@@ -40,4 +40,19 @@ root = lxml.html.fromstring(html)  # HTML 파싱
 linkAs = root.cssselect("#book-stores > li > a")
 for linkA in linkAs:
     print(linkA.attrib['href'])
+
 # %%
+# RSS 스크레이핑하기 (feedparser 모듈을 사용)
+# 알라딘 '컴퓨터/모바일 신간 특선'
+import feedparser
+rss = feedparser.parse("http://www.aladin.co.kr/rss/special_new/351")
+print(rss)
+print(rss['feed']) # 피드 정보
+#print(rss['feed']['title'])  # 피드 제목
+
+for content in rss['entries']:
+    print(content['title'])  # 도서 제목
+    print(content['link'])  # 도서 링크
+    print()  # 줄바꿈
+    
+print(rss.version)  # RSS 버전
