@@ -126,3 +126,4 @@ if __name__ == "__main__":
     page_contents = fetch_pages2()
     with open("page_contents.json", "w", encoding="utf-8") as f_page_contents:
         json.dump(page_contents, f_page_contents, ensure_ascii=False)
+# %%
